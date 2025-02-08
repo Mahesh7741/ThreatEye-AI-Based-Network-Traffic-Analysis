@@ -1,16 +1,17 @@
-server:
-  port: 8080
+CREATE TABLE traffic_logs (
+                              id SERIAL PRIMARY KEY,
+                              source_ip VARCHAR(255),
+                              destination_ip VARCHAR(255),
+                              port INT,
+                              protocol VARCHAR(50),
+                              packet_size INT,
+                              is_threat BOOLEAN,
+                              timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/network_security
-    username: postgres
-    password: Mahesh@123
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-
-logging:
-level:
-    org.springframework: INFO
+CREATE TABLE alerts (
+                        id SERIAL PRIMARY KEY,
+                        message TEXT,
+                        severity VARCHAR(20),
+                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

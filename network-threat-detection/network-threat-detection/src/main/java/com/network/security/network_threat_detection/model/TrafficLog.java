@@ -1,4 +1,4 @@
-package com.network.security.model;
+package com.network.security.network_threat_detection.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
